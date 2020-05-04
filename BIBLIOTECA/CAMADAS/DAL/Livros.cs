@@ -30,7 +30,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
                     livro.editora = dados["editora"].ToString();
                     livro.autor = dados["autor"].ToString();
                     livro.valor = Convert.ToSingle(dados["valor"].ToString());
-                    livro.situacao = Convert.ToInt32(dados["situacao"].ToString();
+                    livro.situacao = Convert.ToInt32(dados["situacao"].ToString());
                     lstLivros.Add(livro);
                 }
             }

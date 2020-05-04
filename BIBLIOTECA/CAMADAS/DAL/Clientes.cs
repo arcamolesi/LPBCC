@@ -16,7 +16,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
         {
             List<MODEL.Clientes> lstClientes = new List<MODEL.Clientes>();
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "Select * from Cliente";
+            string sql = "Select * from Clientes";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             try
             {
