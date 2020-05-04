@@ -9,7 +9,7 @@ namespace BIBLIOTECA.CAMADAS.MODEL
     public class Livros
     {
         public int id { get; set; }
-        public string titulos { get; set; }
+        public string titulo { get; set; }
         public string editora { get; set; }
         public string autor { get; set; }
         public float  valor { get; set; }

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CAMADAS\DAL\Clientes.cs" />
     <Compile Include="CAMADAS\DAL\Conexao.cs" />
+    <Compile Include="CAMADAS\DAL\Livros.cs" />
     <Compile Include="CAMADAS\MODEL\Clientes.cs" />
     <Compile Include="CAMADAS\MODEL\Livros.cs" />
     <Compile Include="frmClientes.cs">
