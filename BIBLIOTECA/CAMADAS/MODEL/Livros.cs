@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BIBLIOTECA.CAMADAS.MODEL
 {
-    class Livros
+    public class Livros
     {
+        public int id { get; set; }
+        public string titulos { get; set; }
+        public string editora { get; set; }
+        public string autor { get; set; }
+        public float  valor { get; set; }
+        public int situacao { get; set; }
     }
 }
