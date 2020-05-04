@@ -1,0 +1,10 @@
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\bin\Debug\BIBLIOTECA.exe.config
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\bin\Debug\BIBLIOTECA.exe
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\bin\Debug\BIBLIOTECA.pdb
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.Properties.Resources.resources
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.csproj.GenerateResource.cache
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.csproj.CoreCompileInputs.cache
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.exe
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.pdb
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmClientes.resources
+D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.csprojAssemblyReference.cache
