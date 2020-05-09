@@ -19,3 +19,5 @@ D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\bin\Debug\BIBLIOTECA.exe.config
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\bin\Debug\BIBLIOTECA.exe
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\bin\Debug\BIBLIOTECA.pdb
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmLivro.resources
+D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmMenu.resources
+D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmSobre.resources

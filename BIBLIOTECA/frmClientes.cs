@@ -69,5 +69,10 @@ namespace BIBLIOTECA
             dtGrvClientes.DataSource = "";
             dtGrvClientes.DataSource = dalCli.Select();
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
