@@ -116,6 +116,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="CAMADAS\DAL\Biblioteca.SQL" />
+    <None Include="Resources\filtrar1.png" />
+    <None Include="Resources\filtrar.png" />
     <None Include="Resources\imagemok.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,16 +32,88 @@ namespace BIBLIOTECA.CAMADAS.DAL
                     livro.valor = Convert.ToSingle(dados["valor"].ToString());
                     livro.situacao = Convert.ToInt32(dados["situacao"].ToString());
                     lstLivros.Add(livro);
-                }  
+                }
             }
-            catch {
+            catch
+            {
                 Console.WriteLine("Erro listar Banco sql-Livros");
             }
             finally
             {
-                conexao.Close(); 
+                conexao.Close();
             }
-            return lstLivros;          
+            return lstLivros;
+        }
+
+
+        public List<MODEL.Livros> SelectByID(int id)
+        {
+            List<MODEL.Livros> lstLivros = new List<MODEL.Livros>();
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "SELECT * FROM Livros WHERE id=@id;";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id",id);
+
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    MODEL.Livros livro = new MODEL.Livros();
+                    livro.id = Convert.ToInt32(dados["id"].ToString());
+                    livro.titulo = dados["titulo"].ToString();
+                    livro.editora = dados["editora"].ToString();
+                    livro.autor = dados["autor"].ToString();
+                    livro.valor = Convert.ToSingle(dados["valor"].ToString());
+                    livro.situacao = Convert.ToInt32(dados["situacao"].ToString());
+                    lstLivros.Add(livro);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Erro listar Banco sql-Livros");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return lstLivros;
+        }
+
+
+        public List<MODEL.Livros> SelectByTitulo(string titulo)
+        {
+            List<MODEL.Livros> lstLivros = new List<MODEL.Livros>();
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "SELECT * FROM Livros WHERE (titulo LIKE @titulo);";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@titulo", "%" + titulo + "%");
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    MODEL.Livros livro = new MODEL.Livros();
+                    livro.id = Convert.ToInt32(dados["id"].ToString());
+                    livro.titulo = dados["titulo"].ToString();
+                    livro.editora = dados["editora"].ToString();
+                    livro.autor = dados["autor"].ToString();
+                    livro.valor = Convert.ToSingle(dados["valor"].ToString());
+                    livro.situacao = Convert.ToInt32(dados["situacao"].ToString());
+                    lstLivros.Add(livro);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Erro listar Banco sql-Livros");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return lstLivros;
         }
 
         public void Insert(MODEL.Livros livro)

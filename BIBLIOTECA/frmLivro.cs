@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,8 @@ namespace BIBLIOTECA
             dtgLivros.DataSource = bllLivros.Select();
             habilitaControles(false);
             habilitaButtons(true);
+
+            gpbPesquisa.Visible = false; 
         }
 
         private void habilitaControles(bool status)
@@ -163,6 +166,57 @@ namespace BIBLIOTECA
         private void dtgLivros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            gpbPesquisa.Visible = !gpbPesquisa.Visible; 
+        }
+
+        private void rdbTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            lblFiltrar.Visible = false;
+            txtFiltro.Visible = false;
+            btnFiltrar.Visible = false;
+          
+            CAMADAS.BLL.Livros bllLivro = new CAMADAS.BLL.Livros();
+            dtgLivros.DataSource = "";
+            dtgLivros.DataSource = bllLivro.Select(); 
+        }
+
+        private void rdbID_CheckedChanged(object sender, EventArgs e)
+        {
+            lblFiltrar.Text = "Informe o ID do Livro: ";
+            txtFiltro.Text = ""; 
+            lblFiltrar.Visible = true;
+            txtFiltro.Visible = true;
+            btnFiltrar.Visible = true;
+            txtFiltro.Focus(); 
+        }
+
+        private void rdbTitulo_CheckedChanged(object sender, EventArgs e)
+        {
+            lblFiltrar.Text = "Informe o Título do Livro: ";
+            txtFiltro.Text = "";
+            lblFiltrar.Visible = true;
+            txtFiltro.Visible = true;
+            btnFiltrar.Visible = true;
+            txtFiltro.Focus();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            List<CAMADAS.MODEL.Livros> lstLivro = new List<CAMADAS.MODEL.Livros>();
+            CAMADAS.BLL.Livros bllLivro = new CAMADAS.BLL.Livros();
+            if (rdbID.Checked)
+            {
+                int id = Convert.ToInt32(txtFiltro.Text);
+                lstLivro = bllLivro.SelectByID(id);
+            }
+            else if (rdbTitulo.Checked)
+                lstLivro = bllLivro.SelectByTitulo(txtFiltro.Text);
+            dtgLivros.DataSource = "";
+            dtgLivros.DataSource = lstLivro; 
         }
     }
 }
