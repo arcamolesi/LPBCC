@@ -46,15 +46,5 @@ namespace BIBLIOTECA.CAMADAS.BLL
             dalLivro.Delete(idLivro); 
         }
 
-        public void Emprestar(MODEL.Livros livro)
-        {
-            //programaremos nas próximas aulas
-        }
-
-        public void Devolver (MODEL.Livros livro)
-        {
-            //programaremos nas próximas aulas
-        }
-
     }
 }
