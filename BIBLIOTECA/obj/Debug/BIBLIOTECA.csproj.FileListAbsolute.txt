@@ -8,7 +8,6 @@ D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.exe
 D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.pdb
 D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmClientes.resources
 D:\Aulas_2020\LPBCC\Aulas\dotNet\BIBLIOTECA\BIBLIOTECA\obj\Debug\BIBLIOTECA.csprojAssemblyReference.cache
-D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.csprojAssemblyReference.cache
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmClientes.resources
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.Properties.Resources.resources
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.csproj.GenerateResource.cache
@@ -21,3 +20,4 @@ D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\bin\Debug\BIBLIOTECA.pdb
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmLivro.resources
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmMenu.resources
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmSobre.resources
+D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmEmprestimo.resources

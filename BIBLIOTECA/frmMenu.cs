@@ -51,5 +51,14 @@ namespace BIBLIOTECA
             frmSobre frmSob = new frmSobre();
             frmSob.ShowDialog(); 
         }
+
+        private void empréstimoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEmprestimo frmEmp = new frmEmprestimo();
+            frmEmp.MdiParent = this;
+            frmEmp.Show(); 
+        }
+
+
     }
 }

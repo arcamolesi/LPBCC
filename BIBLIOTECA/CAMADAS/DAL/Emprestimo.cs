@@ -92,12 +92,12 @@ namespace BIBLIOTECA.CAMADAS.DAL
 
         }
 
-        public void Delete(int idEmpretimo)
+        public void Delete(int idEmprestimo)
         {
             SqlConnection conexao = new SqlConnection(strCon);
             string sql = "DELETE FROM Emprestimo WHERE id=@id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
-            cmd.Parameters.AddWithValue("@id", idEmpretimo);
+            cmd.Parameters.AddWithValue("@id", idEmprestimo);
             try
             {
                 conexao.Open();
