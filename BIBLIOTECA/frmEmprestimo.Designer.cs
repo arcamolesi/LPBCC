@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvEmprestimo = new System.Windows.Forms.DataGridView();
             this.btnGravarEmp = new System.Windows.Forms.Button();
@@ -48,22 +47,25 @@
             this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblItemEmp = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbLivro = new System.Windows.Forms.ComboBox();
+            this.dtpEntrega = new System.Windows.Forms.DateTimePicker();
+            this.txtLivro = new System.Windows.Forms.TextBox();
+            this.btnItemNovo = new System.Windows.Forms.Button();
+            this.btnItemCancelar = new System.Windows.Forms.Button();
+            this.btnItemGravar = new System.Windows.Forms.Button();
+            this.btnItemDevolver = new System.Windows.Forms.Button();
+            this.dgvItens = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(311, 29);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Itens Empréstimo (Livros)";
             // 
             // splitContainer1
             // 
@@ -94,9 +96,20 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Size = new System.Drawing.Size(1299, 719);
-            this.splitContainer1.SplitterDistance = 361;
+            this.splitContainer1.Panel2.Controls.Add(this.dgvItens);
+            this.splitContainer1.Panel2.Controls.Add(this.btnItemDevolver);
+            this.splitContainer1.Panel2.Controls.Add(this.btnItemGravar);
+            this.splitContainer1.Panel2.Controls.Add(this.btnItemCancelar);
+            this.splitContainer1.Panel2.Controls.Add(this.btnItemNovo);
+            this.splitContainer1.Panel2.Controls.Add(this.txtLivro);
+            this.splitContainer1.Panel2.Controls.Add(this.dtpEntrega);
+            this.splitContainer1.Panel2.Controls.Add(this.cmbLivro);
+            this.splitContainer1.Panel2.Controls.Add(this.label8);
+            this.splitContainer1.Panel2.Controls.Add(this.label7);
+            this.splitContainer1.Panel2.Controls.Add(this.lblItemEmp);
+            this.splitContainer1.Panel2.Controls.Add(this.label3);
+            this.splitContainer1.Size = new System.Drawing.Size(1259, 708);
+            this.splitContainer1.SplitterDistance = 357;
             this.splitContainer1.TabIndex = 0;
             // 
             // dgvEmprestimo
@@ -107,7 +120,7 @@
             this.cliente,
             this.data,
             this.clienteId});
-            this.dgvEmprestimo.Location = new System.Drawing.Point(781, 36);
+            this.dgvEmprestimo.Location = new System.Drawing.Point(745, 36);
             this.dgvEmprestimo.Name = "dgvEmprestimo";
             this.dgvEmprestimo.RowHeadersWidth = 51;
             this.dgvEmprestimo.RowTemplate.Height = 24;
@@ -184,7 +197,7 @@
             // txtClienteID
             // 
             this.txtClienteID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClienteID.Location = new System.Drawing.Point(474, 81);
+            this.txtClienteID.Location = new System.Drawing.Point(513, 58);
             this.txtClienteID.Name = "txtClienteID";
             this.txtClienteID.Size = new System.Drawing.Size(198, 34);
             this.txtClienteID.TabIndex = 7;
@@ -194,7 +207,7 @@
             // 
             this.dtpData.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpData.Location = new System.Drawing.Point(158, 130);
+            this.dtpData.Location = new System.Drawing.Point(197, 107);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(148, 34);
             this.dtpData.TabIndex = 6;
@@ -203,7 +216,7 @@
             // 
             this.cmbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(158, 78);
+            this.cmbCliente.Location = new System.Drawing.Point(197, 55);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(310, 37);
             this.cmbCliente.TabIndex = 5;
@@ -214,7 +227,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(84, 136);
+            this.label5.Location = new System.Drawing.Point(123, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 29);
             this.label5.TabIndex = 4;
@@ -225,7 +238,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(57, 86);
+            this.label4.Location = new System.Drawing.Point(96, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 29);
             this.label4.TabIndex = 3;
@@ -235,7 +248,7 @@
             // 
             this.lblEmpID.AutoSize = true;
             this.lblEmpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpID.Location = new System.Drawing.Point(153, 36);
+            this.lblEmpID.Location = new System.Drawing.Point(192, 13);
             this.lblEmpID.Name = "lblEmpID";
             this.lblEmpID.Size = new System.Drawing.Size(79, 29);
             this.lblEmpID.TabIndex = 1;
@@ -245,7 +258,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 36);
+            this.label1.Location = new System.Drawing.Point(42, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 29);
             this.label1.TabIndex = 0;
@@ -288,11 +301,131 @@
             this.clienteId.Visible = false;
             this.clienteId.Width = 125;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(67, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 29);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Item ID:";
+            // 
+            // lblItemEmp
+            // 
+            this.lblItemEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemEmp.Location = new System.Drawing.Point(174, 40);
+            this.lblItemEmp.Name = "lblItemEmp";
+            this.lblItemEmp.Size = new System.Drawing.Size(100, 23);
+            this.lblItemEmp.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(90, 91);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 29);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Livro:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(29, 142);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(132, 29);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Dt Entrega:";
+            // 
+            // cmbLivro
+            // 
+            this.cmbLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbLivro.FormattingEnabled = true;
+            this.cmbLivro.Location = new System.Drawing.Point(167, 83);
+            this.cmbLivro.Name = "cmbLivro";
+            this.cmbLivro.Size = new System.Drawing.Size(331, 37);
+            this.cmbLivro.TabIndex = 5;
+            this.cmbLivro.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // dtpEntrega
+            // 
+            this.dtpEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEntrega.Location = new System.Drawing.Point(167, 137);
+            this.dtpEntrega.Name = "dtpEntrega";
+            this.dtpEntrega.Size = new System.Drawing.Size(181, 34);
+            this.dtpEntrega.TabIndex = 6;
+            this.dtpEntrega.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // txtLivro
+            // 
+            this.txtLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLivro.Location = new System.Drawing.Point(504, 83);
+            this.txtLivro.Name = "txtLivro";
+            this.txtLivro.Size = new System.Drawing.Size(198, 34);
+            this.txtLivro.TabIndex = 7;
+            this.txtLivro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btnItemNovo
+            // 
+            this.btnItemNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItemNovo.Location = new System.Drawing.Point(42, 241);
+            this.btnItemNovo.Name = "btnItemNovo";
+            this.btnItemNovo.Size = new System.Drawing.Size(134, 48);
+            this.btnItemNovo.TabIndex = 8;
+            this.btnItemNovo.Text = "N&ovo";
+            this.btnItemNovo.UseVisualStyleBackColor = true;
+            // 
+            // btnItemCancelar
+            // 
+            this.btnItemCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItemCancelar.Location = new System.Drawing.Point(205, 241);
+            this.btnItemCancelar.Name = "btnItemCancelar";
+            this.btnItemCancelar.Size = new System.Drawing.Size(134, 48);
+            this.btnItemCancelar.TabIndex = 9;
+            this.btnItemCancelar.Text = "&Cancelar";
+            this.btnItemCancelar.UseVisualStyleBackColor = true;
+            this.btnItemCancelar.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnItemGravar
+            // 
+            this.btnItemGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItemGravar.Location = new System.Drawing.Point(368, 241);
+            this.btnItemGravar.Name = "btnItemGravar";
+            this.btnItemGravar.Size = new System.Drawing.Size(134, 48);
+            this.btnItemGravar.TabIndex = 10;
+            this.btnItemGravar.Text = "&Gravar";
+            this.btnItemGravar.UseVisualStyleBackColor = true;
+            this.btnItemGravar.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnItemDevolver
+            // 
+            this.btnItemDevolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItemDevolver.Location = new System.Drawing.Point(531, 241);
+            this.btnItemDevolver.Name = "btnItemDevolver";
+            this.btnItemDevolver.Size = new System.Drawing.Size(134, 48);
+            this.btnItemDevolver.TabIndex = 11;
+            this.btnItemDevolver.Text = "&Devolver";
+            this.btnItemDevolver.UseVisualStyleBackColor = true;
+            this.btnItemDevolver.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // dgvItens
+            // 
+            this.dgvItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItens.Location = new System.Drawing.Point(745, 25);
+            this.dgvItens.Name = "dgvItens";
+            this.dgvItens.RowHeadersWidth = 51;
+            this.dgvItens.RowTemplate.Height = 24;
+            this.dgvItens.Size = new System.Drawing.Size(476, 264);
+            this.dgvItens.TabIndex = 12;
+            // 
             // frmEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 719);
+            this.ClientSize = new System.Drawing.Size(1259, 708);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -307,13 +440,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-       
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label lblEmpID;
         private System.Windows.Forms.Label label1;
@@ -333,5 +465,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
         private System.Windows.Forms.DataGridViewTextBoxColumn clienteId;
+        private System.Windows.Forms.DataGridView dgvItens;
+        private System.Windows.Forms.Button btnItemDevolver;
+        private System.Windows.Forms.Button btnItemGravar;
+        private System.Windows.Forms.Button btnItemCancelar;
+        private System.Windows.Forms.Button btnItemNovo;
+        private System.Windows.Forms.TextBox txtLivro;
+        private System.Windows.Forms.DateTimePicker dtpEntrega;
+        private System.Windows.Forms.ComboBox cmbLivro;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblItemEmp;
+        private System.Windows.Forms.Label label3;
     }
 }
