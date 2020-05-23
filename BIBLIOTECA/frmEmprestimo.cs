@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BIBLIOTECA.CAMADAS;
 
 namespace BIBLIOTECA
 {
@@ -49,6 +50,18 @@ namespace BIBLIOTECA
 
         private void btnGravarEmp_Click(object sender, EventArgs e)
         {
+            CAMADAS.MODEL.Emprestimo emprestimo = new CAMADAS.MODEL.Emprestimo();
+            emprestimo.id = Convert.ToInt32(lblEmpID.Text);
+            emprestimo.clienteId = Convert.ToInt32(txtClienteID.Text);
+            emprestimo.data = dtpData.Value;
+
+            CAMADAS.BLL.Emprestimo bllEmp = new CAMADAS.BLL.Emprestimo();
+            if (lblEmpID.Text == "-1")
+                bllEmp.Insert(emprestimo);
+            else bllEmp.Update(emprestimo);
+
+            dgvEmprestimo.DataSource = bllEmp.Select(); 
+
             habilitaControlesEmprestimo(false); 
         }
 
@@ -74,7 +87,12 @@ namespace BIBLIOTECA
            CAMADAS.BLL.Clientes bllCli = new CAMADAS.BLL.Clientes();
             cmbCliente.DisplayMember = "nome";
             cmbCliente.ValueMember = "id";
-            cmbCliente.DataSource = bllCli.Select(); 
+            cmbCliente.DataSource = bllCli.Select();
+
+            CAMADAS.BLL.Emprestimo bllEmp = new CAMADAS.BLL.Emprestimo();
+            dgvEmprestimo.DataSource = "";
+            dgvEmprestimo.DataSource = bllEmp.Select();
+            this.dgvEmprestimo.DefaultCellStyle.Font = new Font("Tahoma", 12);
 
             habilitaControlesEmprestimo(false); 
         }
@@ -108,7 +126,36 @@ namespace BIBLIOTECA
             cmbCliente_SelectedIndexChanged(null, null); 
         }
 
+        private void dgvEmprestimo_DoubleClick(object sender, EventArgs e)
+        {
+            lblEmpID.Text = dgvEmprestimo.SelectedRows[0].Cells["id"].Value.ToString();
+            cmbCliente.SelectedValue = Convert.ToInt32(dgvEmprestimo.SelectedRows[0].Cells["clienteId"].Value.ToString());
+            txtClienteID.Text = dgvEmprestimo.SelectedRows[0].Cells["clienteId"].Value.ToString();
+            dtpData.Value = Convert.ToDateTime(dgvEmprestimo.SelectedRows[0].Cells["data"].Value.ToString());
+        }
+
+       
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

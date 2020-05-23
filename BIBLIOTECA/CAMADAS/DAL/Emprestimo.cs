@@ -28,6 +28,12 @@ namespace BIBLIOTECA.CAMADAS.DAL
                     emprestimo.id = Convert.ToInt32(dados["id"].ToString());
                     emprestimo.clienteId = Convert.ToInt32(dados["clienteID"].ToString());
                     emprestimo.data = Convert.ToDateTime(dados["data"].ToString());
+
+                    //recuperar cliente
+                    CAMADAS.BLL.Clientes bllCli = new BLL.Clientes();
+                    CAMADAS.MODEL.Clientes cliente = bllCli.SelectByID(emprestimo.clienteId);
+                    emprestimo.cliente = cliente.nome; 
+
                     lstEmprestimo.Add(emprestimo);
                 }
             }

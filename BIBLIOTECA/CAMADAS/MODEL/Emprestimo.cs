@@ -10,6 +10,7 @@ namespace BIBLIOTECA.CAMADAS.MODEL
     {
         public int id { get; set; }
         public int clienteId { get; set; }
+        public string cliente { get; set; }
         public DateTime data { get; set; }
     }
 }

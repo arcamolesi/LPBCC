@@ -10,7 +10,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
 {
     public class Clientes
     {
-        private string strCon = Conexao.getConexao(); 
+        private string strCon = Conexao.getConexao();
 
         public List<MODEL.Clientes> Select()
         {
@@ -30,7 +30,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
                     cliente.curso = dados["curso"].ToString();
                     cliente.dias = Convert.ToInt32(dados["dias"].ToString());
                     cliente.multa = Convert.ToSingle(dados["multa"].ToString());
-                    lstClientes.Add(cliente); 
+                    lstClientes.Add(cliente);
                 }
             }
             catch
@@ -39,9 +39,42 @@ namespace BIBLIOTECA.CAMADAS.DAL
             }
             finally
             {
-                conexao.Close(); 
+                conexao.Close();
             }
-            return lstClientes; 
+            return lstClientes;
+        }
+
+
+        public MODEL.Clientes SelectByID(int id)
+        {
+            MODEL.Clientes cliente = new MODEL.Clientes();
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "SELECT * FROM Clientes WHERE id=@id;";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", id); 
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader();
+                if (dados.Read())
+                {
+                    cliente.id = Convert.ToInt32(dados[0].ToString());
+                    cliente.nome = dados["nome"].ToString();
+                    cliente.curso = dados["curso"].ToString();
+                    cliente.dias = Convert.ToInt32(dados["dias"].ToString());
+                    cliente.multa = Convert.ToSingle(dados["multa"].ToString());
+                }
+
+            }
+            catch
+            {
+                Console.WriteLine("Deu erro na execução do comando select de clientes por id");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return cliente;
         }
 
         public void Insert(MODEL.Clientes cliente)
@@ -57,7 +90,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
             try
             {
                 conexao.Open();
-                cmd.ExecuteNonQuery(); 
+                cmd.ExecuteNonQuery();
             }
             catch
             {
@@ -65,7 +98,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
             }
             finally
             {
-                conexao.Close(); 
+                conexao.Close();
             }
         }
 
@@ -73,9 +106,9 @@ namespace BIBLIOTECA.CAMADAS.DAL
         {
             SqlConnection conexao = new SqlConnection(strCon);
             string sql = "UPDATE Clientes SET nome=@nome, curso=@curso, dias=@dia, multa=@multa ";
-            sql += " WHERE id=@id;"; 
+            sql += " WHERE id=@id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
-            cmd.Parameters.AddWithValue("@id", cliente.id); 
+            cmd.Parameters.AddWithValue("@id", cliente.id);
             cmd.Parameters.AddWithValue("@nome", cliente.nome);
             cmd.Parameters.AddWithValue("@curso", cliente.curso);
             cmd.Parameters.AddWithValue("@dia", cliente.dias);
@@ -103,7 +136,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
             string sql = "DELETE FROM Clientes  WHERE id=@id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@id", idCliente);
-          
+
             try
             {
                 conexao.Open();

@@ -14,6 +14,13 @@ namespace BIBLIOTECA.CAMADAS.BLL
             return dalCli.Select(); 
         }
 
+        public MODEL.Clientes SelectByID(int id)
+        {
+            DAL.Clientes dalCli = new DAL.Clientes();
+            return dalCli.SelectByID(id);
+        }
+
+
         public void Insert (MODEL.Clientes cliente)
         {
             DAL.Clientes dalCli = new DAL.Clientes();
