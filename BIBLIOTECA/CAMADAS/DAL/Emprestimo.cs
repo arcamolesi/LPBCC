@@ -48,9 +48,6 @@ namespace BIBLIOTECA.CAMADAS.DAL
             return lstEmprestimo;
         }
 
-
-       
-
         public void Insert(MODEL.Emprestimo emprestimo)
         {
             SqlConnection conexao = new SqlConnection(strCon);
