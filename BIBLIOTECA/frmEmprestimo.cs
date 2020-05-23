@@ -107,5 +107,10 @@ namespace BIBLIOTECA
         {
             cmbCliente_SelectedIndexChanged(null, null); 
         }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

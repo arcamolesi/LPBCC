@@ -21,3 +21,4 @@ D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmLivro.resou
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmMenu.resources
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmSobre.resources
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmEmprestimo.resources
+D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.csprojAssemblyReference.cache
