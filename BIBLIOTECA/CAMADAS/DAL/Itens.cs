@@ -55,7 +55,7 @@ namespace BIBLIOTECA.CAMADAS.DAL
         public void Insert(MODEL.Itens item)
         {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "INSERT INTO Itens VALUES (@empretismo, @livro, @entrega);";
+            string sql = "INSERT INTO Itens VALUES (@emprestimo, @livro, @entrega);";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@emprestimo", item.emprestimoID);
             cmd.Parameters.AddWithValue("@livro", item.livroID);

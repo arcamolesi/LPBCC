@@ -30,6 +30,10 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvEmprestimo = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGravarEmp = new System.Windows.Forms.Button();
             this.btnCancelarEmp = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -43,22 +47,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblEmpID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblItemEmp = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cmbLivro = new System.Windows.Forms.ComboBox();
-            this.dtpEntrega = new System.Windows.Forms.DateTimePicker();
-            this.txtLivro = new System.Windows.Forms.TextBox();
-            this.btnItemNovo = new System.Windows.Forms.Button();
-            this.btnItemCancelar = new System.Windows.Forms.Button();
-            this.btnItemGravar = new System.Windows.Forms.Button();
-            this.btnItemDevolver = new System.Windows.Forms.Button();
             this.dgvItens = new System.Windows.Forms.DataGridView();
+            this.btnItemDevolver = new System.Windows.Forms.Button();
+            this.btnItemGravar = new System.Windows.Forms.Button();
+            this.btnItemCancelar = new System.Windows.Forms.Button();
+            this.btnItemNovo = new System.Windows.Forms.Button();
+            this.txtLivro = new System.Windows.Forms.TextBox();
+            this.dtpEntrega = new System.Windows.Forms.DateTimePicker();
+            this.cmbLivro = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblItemEmp = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.livro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.livroItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emprestimoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -126,7 +131,44 @@
             this.dgvEmprestimo.RowTemplate.Height = 24;
             this.dgvEmprestimo.Size = new System.Drawing.Size(486, 283);
             this.dgvEmprestimo.TabIndex = 14;
+            this.dgvEmprestimo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmprestimo_CellContentClick);
             this.dgvEmprestimo.DoubleClick += new System.EventHandler(this.dgvEmprestimo_DoubleClick);
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 50;
+            // 
+            // cliente
+            // 
+            this.cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.cliente.DataPropertyName = "cliente";
+            this.cliente.HeaderText = "CLIENTE";
+            this.cliente.MinimumWidth = 6;
+            this.cliente.Name = "cliente";
+            this.cliente.Width = 94;
+            // 
+            // data
+            // 
+            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.data.DataPropertyName = "data";
+            this.data.HeaderText = "DATA";
+            this.data.MinimumWidth = 6;
+            this.data.Name = "data";
+            this.data.Width = 74;
+            // 
+            // clienteId
+            // 
+            this.clienteId.DataPropertyName = "clienteId";
+            this.clienteId.HeaderText = "clienteId";
+            this.clienteId.MinimumWidth = 6;
+            this.clienteId.Name = "clienteId";
+            this.clienteId.Visible = false;
+            this.clienteId.Width = 125;
             // 
             // btnGravarEmp
             // 
@@ -246,13 +288,11 @@
             // 
             // lblEmpID
             // 
-            this.lblEmpID.AutoSize = true;
             this.lblEmpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmpID.Location = new System.Drawing.Point(192, 13);
             this.lblEmpID.Name = "lblEmpID";
             this.lblEmpID.Size = new System.Drawing.Size(79, 29);
             this.lblEmpID.TabIndex = 1;
-            this.lblEmpID.Text = "label3";
             // 
             // label1
             // 
@@ -265,89 +305,75 @@
             this.label1.Text = "Empréstimo:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // id
+            // dgvItens
             // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 50;
+            this.dgvItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idItem,
+            this.livro,
+            this.entrega,
+            this.livroItemID,
+            this.emprestimoID});
+            this.dgvItens.Location = new System.Drawing.Point(745, 25);
+            this.dgvItens.Name = "dgvItens";
+            this.dgvItens.RowHeadersWidth = 51;
+            this.dgvItens.RowTemplate.Height = 24;
+            this.dgvItens.Size = new System.Drawing.Size(476, 264);
+            this.dgvItens.TabIndex = 12;
             // 
-            // cliente
+            // btnItemDevolver
             // 
-            this.cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.cliente.DataPropertyName = "cliente";
-            this.cliente.HeaderText = "CLIENTE";
-            this.cliente.MinimumWidth = 6;
-            this.cliente.Name = "cliente";
-            this.cliente.Width = 94;
+            this.btnItemDevolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItemDevolver.Location = new System.Drawing.Point(531, 241);
+            this.btnItemDevolver.Name = "btnItemDevolver";
+            this.btnItemDevolver.Size = new System.Drawing.Size(134, 48);
+            this.btnItemDevolver.TabIndex = 11;
+            this.btnItemDevolver.Text = "&Devolver";
+            this.btnItemDevolver.UseVisualStyleBackColor = true;
+            this.btnItemDevolver.Click += new System.EventHandler(this.btnItemDevolver_Click);
             // 
-            // data
+            // btnItemGravar
             // 
-            this.data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.data.DataPropertyName = "data";
-            this.data.HeaderText = "DATA";
-            this.data.MinimumWidth = 6;
-            this.data.Name = "data";
-            this.data.Width = 74;
+            this.btnItemGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItemGravar.Location = new System.Drawing.Point(368, 241);
+            this.btnItemGravar.Name = "btnItemGravar";
+            this.btnItemGravar.Size = new System.Drawing.Size(134, 48);
+            this.btnItemGravar.TabIndex = 7;
+            this.btnItemGravar.Text = "&Gravar";
+            this.btnItemGravar.UseVisualStyleBackColor = true;
+            this.btnItemGravar.Click += new System.EventHandler(this.btnItemGravar_Click);
             // 
-            // clienteId
+            // btnItemCancelar
             // 
-            this.clienteId.DataPropertyName = "clienteId";
-            this.clienteId.HeaderText = "clienteId";
-            this.clienteId.MinimumWidth = 6;
-            this.clienteId.Name = "clienteId";
-            this.clienteId.Visible = false;
-            this.clienteId.Width = 125;
+            this.btnItemCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItemCancelar.Location = new System.Drawing.Point(205, 241);
+            this.btnItemCancelar.Name = "btnItemCancelar";
+            this.btnItemCancelar.Size = new System.Drawing.Size(134, 48);
+            this.btnItemCancelar.TabIndex = 8;
+            this.btnItemCancelar.Text = "&Cancelar";
+            this.btnItemCancelar.UseVisualStyleBackColor = true;
+            this.btnItemCancelar.Click += new System.EventHandler(this.btnItemCancelar_Click);
             // 
-            // label3
+            // btnItemNovo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(67, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 29);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Item ID:";
+            this.btnItemNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnItemNovo.Location = new System.Drawing.Point(42, 241);
+            this.btnItemNovo.Name = "btnItemNovo";
+            this.btnItemNovo.Size = new System.Drawing.Size(134, 48);
+            this.btnItemNovo.TabIndex = 9;
+            this.btnItemNovo.Text = "N&ovo";
+            this.btnItemNovo.UseVisualStyleBackColor = true;
+            this.btnItemNovo.Click += new System.EventHandler(this.btnItemNovo_Click);
             // 
-            // lblItemEmp
+            // txtLivro
             // 
-            this.lblItemEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemEmp.Location = new System.Drawing.Point(174, 40);
-            this.lblItemEmp.Name = "lblItemEmp";
-            this.lblItemEmp.Size = new System.Drawing.Size(100, 23);
-            this.lblItemEmp.TabIndex = 2;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(90, 91);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 29);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Livro:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(29, 142);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(132, 29);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Dt Entrega:";
-            // 
-            // cmbLivro
-            // 
-            this.cmbLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbLivro.FormattingEnabled = true;
-            this.cmbLivro.Location = new System.Drawing.Point(167, 83);
-            this.cmbLivro.Name = "cmbLivro";
-            this.cmbLivro.Size = new System.Drawing.Size(331, 37);
-            this.cmbLivro.TabIndex = 5;
-            this.cmbLivro.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.txtLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLivro.Location = new System.Drawing.Point(609, 83);
+            this.txtLivro.Name = "txtLivro";
+            this.txtLivro.Size = new System.Drawing.Size(93, 34);
+            this.txtLivro.TabIndex = 10;
+            this.txtLivro.TextChanged += new System.EventHandler(this.txtLivro_TextChanged);
+            this.txtLivro.Leave += new System.EventHandler(this.txtLivro_Leave);
             // 
             // dtpEntrega
             // 
@@ -359,67 +385,99 @@
             this.dtpEntrega.TabIndex = 6;
             this.dtpEntrega.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // txtLivro
+            // cmbLivro
             // 
-            this.txtLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLivro.Location = new System.Drawing.Point(504, 83);
-            this.txtLivro.Name = "txtLivro";
-            this.txtLivro.Size = new System.Drawing.Size(198, 34);
-            this.txtLivro.TabIndex = 7;
-            this.txtLivro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.cmbLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbLivro.FormattingEnabled = true;
+            this.cmbLivro.Location = new System.Drawing.Point(167, 83);
+            this.cmbLivro.Name = "cmbLivro";
+            this.cmbLivro.Size = new System.Drawing.Size(436, 37);
+            this.cmbLivro.TabIndex = 5;
+            this.cmbLivro.SelectedIndexChanged += new System.EventHandler(this.cmbLivro_SelectedIndexChanged);
+            this.cmbLivro.Leave += new System.EventHandler(this.cmbLivro_Leave);
             // 
-            // btnItemNovo
+            // label8
             // 
-            this.btnItemNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnItemNovo.Location = new System.Drawing.Point(42, 241);
-            this.btnItemNovo.Name = "btnItemNovo";
-            this.btnItemNovo.Size = new System.Drawing.Size(134, 48);
-            this.btnItemNovo.TabIndex = 8;
-            this.btnItemNovo.Text = "N&ovo";
-            this.btnItemNovo.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(29, 142);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(132, 29);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Dt Entrega:";
             // 
-            // btnItemCancelar
+            // label7
             // 
-            this.btnItemCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnItemCancelar.Location = new System.Drawing.Point(205, 241);
-            this.btnItemCancelar.Name = "btnItemCancelar";
-            this.btnItemCancelar.Size = new System.Drawing.Size(134, 48);
-            this.btnItemCancelar.TabIndex = 9;
-            this.btnItemCancelar.Text = "&Cancelar";
-            this.btnItemCancelar.UseVisualStyleBackColor = true;
-            this.btnItemCancelar.Click += new System.EventHandler(this.button2_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(90, 91);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 29);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Livro:";
             // 
-            // btnItemGravar
+            // lblItemEmp
             // 
-            this.btnItemGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnItemGravar.Location = new System.Drawing.Point(368, 241);
-            this.btnItemGravar.Name = "btnItemGravar";
-            this.btnItemGravar.Size = new System.Drawing.Size(134, 48);
-            this.btnItemGravar.TabIndex = 10;
-            this.btnItemGravar.Text = "&Gravar";
-            this.btnItemGravar.UseVisualStyleBackColor = true;
-            this.btnItemGravar.Click += new System.EventHandler(this.button3_Click);
+            this.lblItemEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemEmp.Location = new System.Drawing.Point(174, 40);
+            this.lblItemEmp.Name = "lblItemEmp";
+            this.lblItemEmp.Size = new System.Drawing.Size(100, 23);
+            this.lblItemEmp.TabIndex = 2;
             // 
-            // btnItemDevolver
+            // label3
             // 
-            this.btnItemDevolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnItemDevolver.Location = new System.Drawing.Point(531, 241);
-            this.btnItemDevolver.Name = "btnItemDevolver";
-            this.btnItemDevolver.Size = new System.Drawing.Size(134, 48);
-            this.btnItemDevolver.TabIndex = 11;
-            this.btnItemDevolver.Text = "&Devolver";
-            this.btnItemDevolver.UseVisualStyleBackColor = true;
-            this.btnItemDevolver.Click += new System.EventHandler(this.button4_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(67, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 29);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Item ID:";
             // 
-            // dgvItens
+            // idItem
             // 
-            this.dgvItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItens.Location = new System.Drawing.Point(745, 25);
-            this.dgvItens.Name = "dgvItens";
-            this.dgvItens.RowHeadersWidth = 51;
-            this.dgvItens.RowTemplate.Height = 24;
-            this.dgvItens.Size = new System.Drawing.Size(476, 264);
-            this.dgvItens.TabIndex = 12;
+            this.idItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.idItem.DataPropertyName = "id";
+            this.idItem.HeaderText = "ID";
+            this.idItem.MinimumWidth = 6;
+            this.idItem.Name = "idItem";
+            this.idItem.Width = 50;
+            // 
+            // livro
+            // 
+            this.livro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.livro.DataPropertyName = "livro";
+            this.livro.HeaderText = "LIVRO";
+            this.livro.MinimumWidth = 6;
+            this.livro.Name = "livro";
+            this.livro.Width = 78;
+            // 
+            // entrega
+            // 
+            this.entrega.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.entrega.DataPropertyName = "entrega";
+            this.entrega.HeaderText = "ENTREGA";
+            this.entrega.MinimumWidth = 6;
+            this.entrega.Name = "entrega";
+            this.entrega.Width = 104;
+            // 
+            // livroItemID
+            // 
+            this.livroItemID.DataPropertyName = "livroID";
+            this.livroItemID.HeaderText = "livroID";
+            this.livroItemID.MinimumWidth = 6;
+            this.livroItemID.Name = "livroItemID";
+            this.livroItemID.Visible = false;
+            this.livroItemID.Width = 125;
+            // 
+            // emprestimoID
+            // 
+            this.emprestimoID.DataPropertyName = "emprestimoID";
+            this.emprestimoID.HeaderText = "emprestimoID";
+            this.emprestimoID.MinimumWidth = 6;
+            this.emprestimoID.Name = "emprestimoID";
+            this.emprestimoID.Visible = false;
+            this.emprestimoID.Width = 125;
             // 
             // frmEmprestimo
             // 
@@ -477,5 +535,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblItemEmp;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn livro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entrega;
+        private System.Windows.Forms.DataGridViewTextBoxColumn livroItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emprestimoID;
     }
 }
