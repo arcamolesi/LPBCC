@@ -48,6 +48,11 @@
             this.lblEmpID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvItens = new System.Windows.Forms.DataGridView();
+            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.livro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.livroItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emprestimoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnItemDevolver = new System.Windows.Forms.Button();
             this.btnItemGravar = new System.Windows.Forms.Button();
             this.btnItemCancelar = new System.Windows.Forms.Button();
@@ -59,11 +64,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblItemEmp = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.livro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.livroItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emprestimoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -113,7 +113,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.label7);
             this.splitContainer1.Panel2.Controls.Add(this.lblItemEmp);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
-            this.splitContainer1.Size = new System.Drawing.Size(1259, 708);
+            this.splitContainer1.Size = new System.Drawing.Size(1420, 708);
             this.splitContainer1.SplitterDistance = 357;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -129,7 +129,7 @@
             this.dgvEmprestimo.Name = "dgvEmprestimo";
             this.dgvEmprestimo.RowHeadersWidth = 51;
             this.dgvEmprestimo.RowTemplate.Height = 24;
-            this.dgvEmprestimo.Size = new System.Drawing.Size(486, 283);
+            this.dgvEmprestimo.Size = new System.Drawing.Size(641, 283);
             this.dgvEmprestimo.TabIndex = 14;
             this.dgvEmprestimo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmprestimo_CellContentClick);
             this.dgvEmprestimo.DoubleClick += new System.EventHandler(this.dgvEmprestimo_DoubleClick);
@@ -318,11 +318,59 @@
             this.dgvItens.Name = "dgvItens";
             this.dgvItens.RowHeadersWidth = 51;
             this.dgvItens.RowTemplate.Height = 24;
-            this.dgvItens.Size = new System.Drawing.Size(476, 264);
+            this.dgvItens.Size = new System.Drawing.Size(641, 264);
             this.dgvItens.TabIndex = 12;
+            this.dgvItens.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItens_CellContentClick);
+            this.dgvItens.DoubleClick += new System.EventHandler(this.dgvItens_DoubleClick);
+            // 
+            // idItem
+            // 
+            this.idItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.idItem.DataPropertyName = "id";
+            this.idItem.HeaderText = "ID";
+            this.idItem.MinimumWidth = 6;
+            this.idItem.Name = "idItem";
+            this.idItem.Width = 50;
+            // 
+            // livro
+            // 
+            this.livro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.livro.DataPropertyName = "livro";
+            this.livro.HeaderText = "LIVRO";
+            this.livro.MinimumWidth = 6;
+            this.livro.Name = "livro";
+            this.livro.Width = 78;
+            // 
+            // entrega
+            // 
+            this.entrega.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.entrega.DataPropertyName = "entrega";
+            this.entrega.HeaderText = "ENTREGA";
+            this.entrega.MinimumWidth = 6;
+            this.entrega.Name = "entrega";
+            this.entrega.Width = 104;
+            // 
+            // livroItemID
+            // 
+            this.livroItemID.DataPropertyName = "livroID";
+            this.livroItemID.HeaderText = "livroID";
+            this.livroItemID.MinimumWidth = 6;
+            this.livroItemID.Name = "livroItemID";
+            this.livroItemID.Visible = false;
+            this.livroItemID.Width = 125;
+            // 
+            // emprestimoID
+            // 
+            this.emprestimoID.DataPropertyName = "emprestimoID";
+            this.emprestimoID.HeaderText = "emprestimoID";
+            this.emprestimoID.MinimumWidth = 6;
+            this.emprestimoID.Name = "emprestimoID";
+            this.emprestimoID.Visible = false;
+            this.emprestimoID.Width = 125;
             // 
             // btnItemDevolver
             // 
+            this.btnItemDevolver.Enabled = false;
             this.btnItemDevolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnItemDevolver.Location = new System.Drawing.Point(531, 241);
             this.btnItemDevolver.Name = "btnItemDevolver";
@@ -434,56 +482,11 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Item ID:";
             // 
-            // idItem
-            // 
-            this.idItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.idItem.DataPropertyName = "id";
-            this.idItem.HeaderText = "ID";
-            this.idItem.MinimumWidth = 6;
-            this.idItem.Name = "idItem";
-            this.idItem.Width = 50;
-            // 
-            // livro
-            // 
-            this.livro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.livro.DataPropertyName = "livro";
-            this.livro.HeaderText = "LIVRO";
-            this.livro.MinimumWidth = 6;
-            this.livro.Name = "livro";
-            this.livro.Width = 78;
-            // 
-            // entrega
-            // 
-            this.entrega.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.entrega.DataPropertyName = "entrega";
-            this.entrega.HeaderText = "ENTREGA";
-            this.entrega.MinimumWidth = 6;
-            this.entrega.Name = "entrega";
-            this.entrega.Width = 104;
-            // 
-            // livroItemID
-            // 
-            this.livroItemID.DataPropertyName = "livroID";
-            this.livroItemID.HeaderText = "livroID";
-            this.livroItemID.MinimumWidth = 6;
-            this.livroItemID.Name = "livroItemID";
-            this.livroItemID.Visible = false;
-            this.livroItemID.Width = 125;
-            // 
-            // emprestimoID
-            // 
-            this.emprestimoID.DataPropertyName = "emprestimoID";
-            this.emprestimoID.HeaderText = "emprestimoID";
-            this.emprestimoID.MinimumWidth = 6;
-            this.emprestimoID.Name = "emprestimoID";
-            this.emprestimoID.Visible = false;
-            this.emprestimoID.Width = 125;
-            // 
             // frmEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1259, 708);
+            this.ClientSize = new System.Drawing.Size(1420, 708);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

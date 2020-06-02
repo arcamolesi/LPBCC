@@ -14,10 +14,42 @@ namespace BIBLIOTECA.CAMADAS.BLL
             return dalItens.Select(); 
         }
 
+        public List<MODEL.Itens> SelectByEmp(int idEmp)
+        {
+            DAL.Itens dalItens = new DAL.Itens();
+            return dalItens.SelectByEmp(idEmp);
+        }
+
         public void Insert (MODEL.Itens item)
         {
             DAL.Itens dalItens = new DAL.Itens();
+
+            CAMADAS.BLL.Livros bllLivro = new Livros();
+
+            List<CAMADAS.MODEL.Livros> lstLivro = bllLivro.SelectByID(item.livroID);
+            CAMADAS.MODEL.Livros livro = lstLivro[0];
+            if (livro.situacao == 1)
+                livro.situacao = 2;
+            bllLivro.Update(livro); 
             dalItens.Insert(item); 
+        }
+
+        public void Devolver(MODEL.Itens item)
+        {
+            DAL.Itens dalItens = new DAL.Itens();
+
+            CAMADAS.BLL.Livros bllLivro = new Livros();
+
+            List<CAMADAS.MODEL.Livros> lstLivro = bllLivro.SelectByID(item.livroID);
+            CAMADAS.MODEL.Livros livro = lstLivro[0];
+
+            if (livro.situacao == 2)
+                livro.situacao = 1;
+            bllLivro.Update(livro);
+
+            item.entrega = DateTime.Now;
+            Update(item); 
+         
         }
 
         public void Update(MODEL.Itens item)

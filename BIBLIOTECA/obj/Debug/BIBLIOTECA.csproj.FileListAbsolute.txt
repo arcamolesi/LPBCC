@@ -22,3 +22,17 @@ D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmMenu.resour
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmSobre.resources
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmEmprestimo.resources
 D:\Aulas_2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.csprojAssemblyReference.cache
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\bin\Debug\BIBLIOTECA.exe.config
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\bin\Debug\BIBLIOTECA.exe
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\bin\Debug\BIBLIOTECA.pdb
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.csprojAssemblyReference.cache
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmClientes.resources
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmEmprestimo.resources
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmLivro.resources
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmMenu.resources
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.frmSobre.resources
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.Properties.Resources.resources
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.csproj.GenerateResource.cache
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.csproj.CoreCompileInputs.cache
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.exe
+D:\OneDrive - Fundação Educacional do Município de Assis\Aulas2020\LPBCC\Aulas\Desktop\BIBLIOTECA\obj\Debug\BIBLIOTECA.pdb

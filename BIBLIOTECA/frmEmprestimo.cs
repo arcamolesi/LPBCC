@@ -36,7 +36,7 @@ namespace BIBLIOTECA
             cmbLivro.Enabled = status;
             dtpEntrega.Enabled = false;
            // btnItemNovo.Enabled = !status;
-            btnItemDevolver.Enabled = status;
+            //btnItemDevolver.Enabled = status;
             btnItemCancelar.Enabled = status;
             btnItemGravar.Enabled = status; 
         }
@@ -163,7 +163,10 @@ namespace BIBLIOTECA
             cmbCliente.SelectedValue = Convert.ToInt32(dgvEmprestimo.SelectedRows[0].Cells["clienteId"].Value.ToString());
             txtClienteID.Text = dgvEmprestimo.SelectedRows[0].Cells["clienteId"].Value.ToString();
             dtpData.Value = Convert.ToDateTime(dgvEmprestimo.SelectedRows[0].Cells["data"].Value.ToString());
-            btnItemNovo.Enabled = true; 
+            btnItemNovo.Enabled = true;
+
+            CAMADAS.BLL.Itens bllItem = new CAMADAS.BLL.Itens();
+            dgvItens.DataSource = bllItem.SelectByEmp(Convert.ToInt32(lblEmpID.Text)); 
         }
 
        
@@ -216,18 +219,45 @@ namespace BIBLIOTECA
             try
             {
                 cmbLivro_SelectedIndexChanged(null, null);
+                verificaLivro();
             }
-            catch 
+            catch
             {
-                MessageBox.Show("Por favor informe um livro..."); 
-                cmbLivro.Focus(); 
+                MessageBox.Show("Por favor informe um livro...");
+                cmbLivro.Focus();
             }
             
+            
+        }
+
+        private void verificaLivro()
+        {
+            
+            int idLivro = Convert.ToInt32(txtLivro.Text);
+            CAMADAS.BLL.Livros bllLivro = new CAMADAS.BLL.Livros();
+            List<CAMADAS.MODEL.Livros> lstLivro = bllLivro.SelectByID(idLivro);
+            if (lstLivro.Count > 0)
+            {
+                CAMADAS.MODEL.Livros livro = lstLivro[0]; 
+                if (livro.situacao == 2)
+                {
+                    MessageBox.Show("Livro " + livro.titulo.Trim() + " já esta emprestado!!!");
+                    cmbLivro.Focus(); 
+                }
+            }
+            else
+            {
+                MessageBox.Show("Livro não encontrado"); 
+                cmbLivro.Focus();
+            }
+
+
         }
 
         private void cmbLivro_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtLivro.Text = cmbLivro.SelectedValue.ToString();
+            
         }
 
         private void txtLivro_Leave(object sender, EventArgs e)
@@ -235,11 +265,13 @@ namespace BIBLIOTECA
             try
             {
                 cmbLivro.SelectedValue = Convert.ToInt32(txtLivro.Text);
+                verificaLivro();
             }
-            catch 
+            catch
             {
-                cmbLivro.Focus();    
+                cmbLivro.Focus();
             }
+            
            
         }
 
@@ -264,11 +296,42 @@ namespace BIBLIOTECA
             CAMADAS.BLL.Itens bllItens = new CAMADAS.BLL.Itens();
             if (lblItemEmp.Text == "-1")
                 bllItens.Insert(item);
-            dgvItens.DataSource = bllItens.Select(); 
+
+            dgvItens.DataSource = bllItens.SelectByEmp(Convert.ToInt32(lblEmpID.Text));
 
         }
 
         private void btnItemDevolver_Click(object sender, EventArgs e)
+        {
+            CAMADAS.MODEL.Itens item = new CAMADAS.MODEL.Itens();
+            item.id = Convert.ToInt32(lblItemEmp.Text);
+            item.emprestimoID = Convert.ToInt32(lblEmpID.Text);
+            item.livroID = Convert.ToInt32(txtLivro.Text);
+            
+           
+
+            CAMADAS.BLL.Itens bllItens = new CAMADAS.BLL.Itens();
+            if (lblItemEmp.Text != "-1")
+                bllItens.Devolver(item);
+
+            dgvItens.DataSource = bllItens.SelectByEmp(Convert.ToInt32(lblEmpID.Text));
+
+
+        }
+
+        private void dgvItens_DoubleClick(object sender, EventArgs e)
+        {
+            if (lblEmpID.Text != "-1")
+            {
+                lblItemEmp.Text = dgvItens.SelectedRows[0].Cells["idItem"].Value.ToString();
+                cmbLivro.SelectedValue = dgvItens.SelectedRows[0].Cells["livroItemID"].Value;
+                txtLivro.Text = dgvItens.SelectedRows[0].Cells["livroItemID"].Value.ToString();
+                dtpEntrega.Value = Convert.ToDateTime(dgvItens.SelectedRows[0].Cells["entrega"].Value.ToString());
+                btnItemDevolver.Enabled = (dtpEntrega.Value == Convert.ToDateTime("1/1/1900")) ? true : false;
+            }
+        }
+
+        private void dgvItens_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

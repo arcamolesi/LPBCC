@@ -50,6 +50,44 @@ namespace BIBLIOTECA.CAMADAS.DAL
         }
 
 
+        public List<MODEL.Itens> SelectByEmp(int idEmp)
+        {
+            List<MODEL.Itens> lstItens = new List<MODEL.Itens>();
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "SELECT * FROM Itens WHERE emprestimoID=@id";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", idEmp); 
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    MODEL.Itens item = new MODEL.Itens();
+                    item.id = Convert.ToInt32(dados["id"].ToString());
+                    item.emprestimoID = Convert.ToInt32(dados["emprestimoID"].ToString());
+                    item.livroID = Convert.ToInt32(dados["livroID"].ToString());
+                    item.entrega = Convert.ToDateTime(dados["entrega"].ToString());
+
+                    //recuperar livro
+                    CAMADAS.BLL.Livros bllLiv = new BLL.Livros();
+                    CAMADAS.MODEL.Livros livro = bllLiv.SelectByID(item.livroID)[0];
+                    item.livro = livro.titulo;
+
+                    lstItens.Add(item);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Erro listar Itens de emprestimo");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return lstItens;
+        }
+
 
 
         public void Insert(MODEL.Itens item)
