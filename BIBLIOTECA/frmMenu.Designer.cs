@@ -33,12 +33,14 @@
             this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.livrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empréstimoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.empréstimoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.geraisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.livrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,8 +93,17 @@
             this.movimentosToolStripMenuItem.Size = new System.Drawing.Size(163, 36);
             this.movimentosToolStripMenuItem.Text = "&Movimentos";
             // 
+            // empréstimoToolStripMenuItem
+            // 
+            this.empréstimoToolStripMenuItem.Name = "empréstimoToolStripMenuItem";
+            this.empréstimoToolStripMenuItem.Size = new System.Drawing.Size(231, 36);
+            this.empréstimoToolStripMenuItem.Text = "Empréstimo";
+            this.empréstimoToolStripMenuItem.Click += new System.EventHandler(this.empréstimoToolStripMenuItem_Click);
+            // 
             // relatóriosToolStripMenuItem
             // 
+            this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.geraisToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(133, 36);
             this.relatóriosToolStripMenuItem.Text = "&Relatórios";
@@ -128,12 +139,20 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // empréstimoToolStripMenuItem
+            // geraisToolStripMenuItem
             // 
-            this.empréstimoToolStripMenuItem.Name = "empréstimoToolStripMenuItem";
-            this.empréstimoToolStripMenuItem.Size = new System.Drawing.Size(231, 36);
-            this.empréstimoToolStripMenuItem.Text = "Empréstimo";
-            this.empréstimoToolStripMenuItem.Click += new System.EventHandler(this.empréstimoToolStripMenuItem_Click);
+            this.geraisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.livrosToolStripMenuItem1});
+            this.geraisToolStripMenuItem.Name = "geraisToolStripMenuItem";
+            this.geraisToolStripMenuItem.Size = new System.Drawing.Size(224, 36);
+            this.geraisToolStripMenuItem.Text = "Gerais";
+            // 
+            // livrosToolStripMenuItem1
+            // 
+            this.livrosToolStripMenuItem1.Name = "livrosToolStripMenuItem1";
+            this.livrosToolStripMenuItem1.Size = new System.Drawing.Size(224, 36);
+            this.livrosToolStripMenuItem1.Text = "Livros";
+            this.livrosToolStripMenuItem1.Click += new System.EventHandler(this.livrosToolStripMenuItem1_Click);
             // 
             // frmMenu
             // 
@@ -177,5 +196,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem empréstimoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem geraisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem livrosToolStripMenuItem1;
     }
 }

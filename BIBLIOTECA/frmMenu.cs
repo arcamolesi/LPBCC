@@ -59,6 +59,9 @@ namespace BIBLIOTECA
             frmEmp.Show(); 
         }
 
-
+        private void livrosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RELATORIOS.RelGerais.relLivros(); 
+        }
     }
 }
