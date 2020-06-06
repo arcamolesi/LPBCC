@@ -35,12 +35,13 @@
             this.movimentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empréstimoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.geraisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.livrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.geraisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.livrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.emprestimosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -103,10 +104,26 @@
             // relatóriosToolStripMenuItem
             // 
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.geraisToolStripMenuItem});
+            this.geraisToolStripMenuItem,
+            this.emprestimosToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(133, 36);
             this.relatóriosToolStripMenuItem.Text = "&Relatórios";
+            // 
+            // geraisToolStripMenuItem
+            // 
+            this.geraisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.livrosToolStripMenuItem1});
+            this.geraisToolStripMenuItem.Name = "geraisToolStripMenuItem";
+            this.geraisToolStripMenuItem.Size = new System.Drawing.Size(241, 36);
+            this.geraisToolStripMenuItem.Text = "Gerais";
+            // 
+            // livrosToolStripMenuItem1
+            // 
+            this.livrosToolStripMenuItem1.Name = "livrosToolStripMenuItem1";
+            this.livrosToolStripMenuItem1.Size = new System.Drawing.Size(165, 36);
+            this.livrosToolStripMenuItem1.Text = "Livros";
+            this.livrosToolStripMenuItem1.Click += new System.EventHandler(this.livrosToolStripMenuItem1_Click);
             // 
             // sobreToolStripMenuItem
             // 
@@ -139,20 +156,12 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // geraisToolStripMenuItem
+            // emprestimosToolStripMenuItem
             // 
-            this.geraisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.livrosToolStripMenuItem1});
-            this.geraisToolStripMenuItem.Name = "geraisToolStripMenuItem";
-            this.geraisToolStripMenuItem.Size = new System.Drawing.Size(224, 36);
-            this.geraisToolStripMenuItem.Text = "Gerais";
-            // 
-            // livrosToolStripMenuItem1
-            // 
-            this.livrosToolStripMenuItem1.Name = "livrosToolStripMenuItem1";
-            this.livrosToolStripMenuItem1.Size = new System.Drawing.Size(224, 36);
-            this.livrosToolStripMenuItem1.Text = "Livros";
-            this.livrosToolStripMenuItem1.Click += new System.EventHandler(this.livrosToolStripMenuItem1_Click);
+            this.emprestimosToolStripMenuItem.Name = "emprestimosToolStripMenuItem";
+            this.emprestimosToolStripMenuItem.Size = new System.Drawing.Size(241, 36);
+            this.emprestimosToolStripMenuItem.Text = "Emprestimos";
+            this.emprestimosToolStripMenuItem.Click += new System.EventHandler(this.emprestimosToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -198,5 +207,6 @@
         private System.Windows.Forms.ToolStripMenuItem empréstimoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem geraisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem livrosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem emprestimosToolStripMenuItem;
     }
 }

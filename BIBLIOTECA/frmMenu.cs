@@ -63,5 +63,12 @@ namespace BIBLIOTECA
         {
             RELATORIOS.RelGerais.relLivros(); 
         }
+
+        private void emprestimosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RELATORIOS.frmRelEmprestimo frmREmp = new RELATORIOS.frmRelEmprestimo();
+            frmREmp.MdiParent = this;
+            frmREmp.Show(); 
+        }
     }
 }
