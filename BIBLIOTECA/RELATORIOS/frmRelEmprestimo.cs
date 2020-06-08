@@ -1,6 +1,7 @@
 ﻿
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using Spire.Xls;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -99,6 +100,7 @@ namespace BIBLIOTECA.RELATORIOS
 
             string pasta = Funcoes.deretorioPasta();
             string arquivo = pasta + @"\RelItens_" + DateTime.Now.ToShortDateString().Replace("/", "_") + "_" + DateTime.Now.ToLongTimeString().Replace(":", "_") + ".xlsx";
+            string arquivoPDF = pasta + @"\RelItens_" + DateTime.Now.ToShortDateString().Replace("/", "_") + "_" + DateTime.Now.ToLongTimeString().Replace(":", "_") + ".pdf";
 
             FileInfo caminhoNomeArquivo = new FileInfo(arquivo);
             ExcelPackage arquivoExcel = new ExcelPackage(caminhoNomeArquivo);
@@ -153,7 +155,21 @@ namespace BIBLIOTECA.RELATORIOS
             arquivoExcel.Save();
             arquivoExcel.Dispose();
 
+
+            Workbook workbook = new Workbook();
+            //Load excel file  
+            workbook.LoadFromFile(arquivo);
+            //Save excel file to pdf file.  
+            Worksheet worksheet = workbook.Worksheets[0];
+            PageSetup setup = worksheet.PageSetup;
+            setup.FitToPagesWide = 1;
+            setup.FitToPagesTall = 1;
+            workbook.SaveToFile(arquivoPDF, Spire.Xls.FileFormat.PDF);
+                 
+
+
             System.Diagnostics.Process.Start(arquivo);
+
         }
 
         private void frmRelEmprestimo_Load(object sender, EventArgs e)

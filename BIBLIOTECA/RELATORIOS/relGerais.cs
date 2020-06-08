@@ -18,7 +18,7 @@ namespace BIBLIOTECA.RELATORIOS
 
             string pasta = Funcoes.deretorioPasta();
             string arquivo = pasta + @"\RelLivros.html";
-
+            string arqpdf = pasta + @"\RelLivros.pdf";
             StreamWriter sw = new StreamWriter(arquivo);
             using (sw) {
                 sw.WriteLine("<html>");
@@ -96,6 +96,10 @@ namespace BIBLIOTECA.RELATORIOS
             }
 
             System.Diagnostics.Process.Start(arquivo);
+
+            var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
+            htmlToPdf.CustomWkHtmlArgs = "--dpi 300";
+            htmlToPdf.GeneratePdfFromFile(arquivo, null, arqpdf);
 
         }
 
